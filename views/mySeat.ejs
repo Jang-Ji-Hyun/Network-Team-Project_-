@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mySeat</title>
+    
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.css">
+    
+    <style>        
+        a{
+            text-decoration: none;
+            color:black
+        }
+        .nav{
+            margin-bottom:50px;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 500px 1fr;
+        }
+        .grid_1-1{
+            margin-right: 50px;
+            padding-right:100px;
+        }
+
+        .blinking{
+            -webkit-animation:blink 0.5s ease-in-out infinite alternate;
+            -moz-animation:blink 0.5s ease-in-out infinite alternate;
+            animation:blink 0.5s ease-in-out infinite alternate;
+        }
+        @-webkit-keyframes blink{
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+        @-moz-keyframes blink{
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+        @keyframes blink{
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!--<div><img src="gsm2.png" alt=""></div>-->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1"><h3>My Seat</h3></span>
+    </nav>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+        <a class="nav-link active" href="/Login">LOGIN</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/Main">LOGOUT</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/Update">UPDATE</a>
+        </li>
+        <li class="nav-item">
+        <% var id = name %>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%= id %></a>
+        </li>
+    </ul>
+
+    <div class="grid">
+        <div class="grid_1-1"> 
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="/notebookLent">노트북 대여 신청하기</a></li>
+                <li class="list-group-item"><a href="/notebookCancel">노트북 대여 신청 취소하기</a></li>
+                <li class="list-group-item"><a href="/mySeat">내가 신청한 자리</a></li>
+                <li class="list-group-item"><a href="">벌점 보기</a></li>
+            </ul>
+        </div>
+        <div>
+            <img src="Seat.png" alt="Seat.png" width="1000">
+            <% if(number==0) { %>
+                <h2 class="image blinking"><%=name %> 님의 좌석은 아직 선택되지 않았습니다!</h2>
+            <%}else{ %>
+                <h2 class="image blinking"><%=name %> 님의 선택 좌석은 <%= number%>입니다!</h2>
+            <%}%>
+        </div>
+    </div>
+    
+</body>
+</html>

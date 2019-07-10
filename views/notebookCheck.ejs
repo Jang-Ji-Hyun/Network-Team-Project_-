@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>notebookCheck</title>
+    
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.css">
+    
+    <style>
+        .nav{
+            margin-bottom:50px;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+        .grid_1-1{
+            margin-right: 50px;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        .white{
+            color:white;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!--<div><img src="gsm2.png" alt=""></div>-->
+    <nav class="navbar navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1"><h3>Note Book Check</h3></span>
+    </nav>
+    <ul class="nav justify-content-end">
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/index">LOGOUT</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/Update">UPDATE</a>
+        </li>
+        <li class="nav-item">
+        <% var id = '사감쌤' %> 
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%= id %></a>
+        </li>
+    </ul>
+
+    <div class="grid">
+        <div class="grid_1-1"> 
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="/notebookCheck">노트북 대여현황 보기</a></li>
+                <li class="list-group-item"><a href="/giveDemerit">벌점 주기</a></li>
+            </ul>
+        </div>
+        <div class="gird_1_2">
+
+            <table class="table">
+                <thead class="bg-primary">
+                    <tr>
+                        <th scope="col" class="white">#</th>
+                        <th scope="col" class="white">LAP</th>
+                        <th scope="col" class="white">GRADE</th>
+                        <th scope="col" class="white">CLASS</th>
+                        <th scope="col" class="white">NUMBER</th>
+                        <th scope="col" class="white">NAME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <% if(_name[0]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[0] %>학년</td>
+                            <td><%=_class[0] %>반</td>
+                            <td><%=_num[0] %>번</td>
+                            <td><%=_name[0] %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <% if(_name[1]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[1] %>학년</td>
+                            <td><%=_class[1] %>반</td>
+                            <td><%=_num[1] %>번</td>
+                            <td><%=_name[1] %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <% if(_name[2]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[2] %>학년</td>
+                            <td><%=_class[2] %>반</td>
+                            <td><%=_num[2] %>번</td>
+                            <td><%=_name[2] %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <% if(_name[3]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[3] %>학년</td>
+                            <td><%=_class[3] %>반</td>
+                            <td><%=_num[3] %>번</td>
+                            <td><%=_name[3] %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <% if(_name[4]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[4] %>학년</td>
+                            <td><%=_class[4] %>반</td>
+                            <td><%=_num[4] %>번</td>
+                            <td><%=_name[4] %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <% if(_name[5]=='NULL'){ %>
+                            <td>LAP1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>공석</td>
+                        <% }else{ %>
+                            <td>LAP1</td>
+                            <td><%=_grade[5] %>학년</td>
+                            <td><%=_class[5] %>반</td>
+                            <td><%=_num[5] %>번</td>
+                            <td><%=_name[5] %></td>
+                        <% }%>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>notebookCancel</title>
+    
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.css">
+    
+    <style>
+        .nav{
+            margin-bottom:50px;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 500px 1fr;
+        }
+        .grid2{
+            width:1100px;
+            display: grid;
+            grid-template-columns: 700px 500px;
+            border: 2px solid #4a4e52;
+            padding-top: 25px;
+            padding-left: 60px;
+            margin-bottom: 15px;
+            border-radius: 20px/20px;
+        }
+        .grid_1-1{
+            margin-right: 50px;
+            padding-right:100px;
+        }
+        .boz{
+            width:1100px;
+            border: 2px solid #4a4e52;
+            margin-bottom:10px;
+            text-align: center;
+            border-radius: 20px/20px;
+        }
+        .input-group{
+            width: 350px;
+            margin-bottom: 30px;
+            margin-right:0;
+        }
+        .input-group-text{
+            margin-right: 20px;
+        }
+        a{
+            text-decoration: none;
+            color:black
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+    <script>
+        var status = <%= status_check %>;
+        if(status==2) alert(`취소되었습니다!`);
+        if(status==4) alert(`이미 빈 자리입니다!`);
+        if(status==6) alert(`다른 사람 자리입니다!`);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!--<div><img src="gsm2.png" alt=""></div>-->
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1"><h3>Note Book Cancel</h3></span>
+    </nav>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+        <a class="nav-link" href="/index">LOGOUT</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/Update">UPDATE</a>
+        </li>
+        <li class="nav-item">
+        <% var id = '이민준' %>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%= id %></a>
+        </li>
+    </ul>
+
+    <div class="grid">
+        <div class="grid_1-1"> 
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="/notebookLent">노트북 대여 신청하기</a></li>
+                <li class="list-group-item"><a href="/notebookCancel">노트북 대여 신청 취소하기</a></li>
+                <li class="list-group-item"><a href="/mySeat">내가 신청한 자리</a></li>
+                <li class="list-group-item"><a href="/Demerit">벌점 보기</a></li>
+            </ul>
+        </div>
+        <div>
+            <form action="./notebookLent_Cancel" method="POST" >
+                <div>
+                    <div class="boz">
+                        <h2>칠판</h2>
+                    </div>
+                    <div class=grid2> 
+                        <div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="1" id="seat1">
+                                    </div>
+                                </div>
+                                <label for="seat1"><div id = _status_1>
+                                        <% if(_status_[0]==1) { %>
+                                            <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                        <%}else{%>
+                                            <img src="1.png" class="rounded float-left" alt="" width="180px">
+                                        <% } %>
+                                </div></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="2" id="seat2">
+                                    </div>
+                                </div>
+                                <label for="seat2"><div id = _status_2>
+                                        <% if(_status_[1]==1) { %>
+                                            <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                        <%}else{%>
+                                            <img src="2.png" class="rounded float-left" alt="" width="180px">
+                                        <% } %>
+                                </div></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="3" id="seat3">
+                                    </div>
+                                </div>
+                                <label for="seat3"><div id = _status_3>                                
+                                        <% if(_status_[2]==1) { %>
+                                            <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                        <%}else{%>
+                                            <img src="3.png" class="rounded float-left" alt="" width="180px">
+                                        <% } %>
+                                </div></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="4" id="seat4">
+                                    </div>
+                                </div>
+                                <label for="seat4"><div id = _status_4>                                
+                                        <% if(_status_[3]==1) { %>
+                                            <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                        <%}else{%>
+                                            <img src="4.png" class="rounded float-left" alt="" width="180px">
+                                        <% } %>
+                                </div></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="5" id="seat5">
+                                    </div>
+                                </div>
+                                <label for="seat5"><div id = _status_5>  
+                                        <% if(_status_[4]==1) { %>
+                                            <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                        <%}else{%>
+                                            <img src="5.png" class="rounded float-left" alt="" width="180px">
+                                        <% } %>
+                                </div></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="seat" value="6" id="seat6">
+                                    </div>
+                                </div>
+                                <label for="seat6"><div id = _status_6>                                
+                                    <% if(_status_[5]==1) { %>
+                                        <img src="unvalid.png" class="rounded float-left" alt="" width="180px">
+                                    <%}else{%>
+                                        <img src="6.png" class="rounded float-left" alt="" width="180px">
+                                    <% } %>
+                                </div></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark btn-sm">취소하기</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
